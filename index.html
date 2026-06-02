@@ -601,46 +601,54 @@
                     
                     <div class="card shadow-lg" data-aos="fade-up">
                         <div class="card-body p-5">
-                            <form id="contactForm">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label">Name *</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                        <div class="invalid-feedback">Please provide your name.</div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Email *</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                        <div class="invalid-feedback">Please provide a valid email.</div>
-                                    </div>
+                            <form id="contactForm" action="https://formspree.io/f/mnjrewyy" method="POST">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
-                                <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <!-- ... row div closes ... -->
+                                 <div class="row">
+    
                                     <div class="col-md-6 mb-3">
+        
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="tel" class="form-control" id="phone">
+        
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+    
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="budget" class="form-label">Budget Range</label>
-                                        <select class="form-select" id="budget">
-                                            <option selected>Select budget range...</option>
-                                            <option value="under-500">Under $500</option>
-                                            <option value="500-1000">$500 - $1,000</option>
-                                            <option value="1000-2500">$1,000 - $2,500</option>
-                                            <option value="2500-plus">$2,500+</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="project" class="form-label">Project Type</label>
-                                    <select class="form-select" id="project">
-                                        <option selected>Choose your project...</option>
-                                        <option value="furniture">Custom Furniture</option>
-                                        <option value="decoration">Decorative Items</option>
-                                        <option value="storage">Storage Solutions</option>
-                                        <option value="kitchen">Kitchen Accessories</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
+    <div class="col-md-6 mb-3">
+        <label for="budget" class="form-label">Budget Range</label>
+        <select class="form-select" id="budget" name="budget">
+            <option selected>Select budget range...</option>
+            <option value="under-500">Under $500</option>
+            <option value="500-1000">$500 - $1,000</option>
+            <option value="1000-2500">$1,000 - $2,500</option>
+            <option value="2500-plus">$2,500+</option>
+        </select>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="project" class="form-label">Project Type</label>
+    <select class="form-select" id="project" name="project">
+        <option selected>Choose your project...</option>
+        <option value="furniture">Custom Furniture</option>
+        <option value="decoration">Decorative Items</option>
+        <option value="storage">Storage Solutions</option>
+        <option value="kitchen">Kitchen Accessories</option>
+        <option value="other">Other</option>
+    </select>
+</div>
+
+<div class="mb-4">
+    <label for="details" class="form-label">Project Details *</label>
+    <textarea class="form-control" id="details" name="message" rows="5" required></textarea>
+</div>
+
                                 <div class="mb-4">
                                     <label for="details" class="form-label">Project Details *</label>
                                     <textarea class="form-control" id="details" rows="5" placeholder="Describe your custom project ideas, dimensions, preferred wood type, and any specific requirements..." required></textarea>
@@ -792,7 +800,7 @@
 
         // Form Validation
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            //e.preventDefault();
             
             const form = this;
             const name = document.getElementById('name');
